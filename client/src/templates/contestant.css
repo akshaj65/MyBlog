@@ -1,0 +1,20 @@
+
+.container li{
+    display: flex;
+    align-self: center;
+    padding-left: 16px;
+
+}
+.codefury{
+    margin-bottom: 25px;
+}
+.padding{
+    padding-left: 24px;
+}
+.center{
+    align-self: center;
+}
+.contest-image{
+    width:200px;
+    object-fit: contain;
+}

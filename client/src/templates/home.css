@@ -1,0 +1,21 @@
+.container{
+    max-width: none;
+}
+.slider{
+    width:80vw;
+    margin :10px auto;
+    height: 500px;
+    animation: slide 11s infinite linear ;
+}
+
+@keyframes slide {
+    0%{
+        background-image: url("https://source.unsplash.com/1600x500/?ecommerce,cricket");
+    }
+    35%{
+        background-image: url("https://source.unsplash.com/1600x500/?nature,cricket");
+    }
+    99%{
+        background-image: url("https://source.unsplash.com/1600x500/?nature,bird");        
+    }
+}

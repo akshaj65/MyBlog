@@ -1,0 +1,11 @@
+[
+    {"id" : "1", "name" : "Educational"},
+    {"id" : "2", "name" : "Competitive Programming"},
+    {"id" : "3", "name" : "Blog Writing"},
+    {"id" : "4", "name" : "Novel Reading"},
+    {"id" : "5", "name" : "Course Completion"},
+    {"id" : "6", "name" : "Web Development"},
+    {"id" : "7", "name" : "App Development"},
+    {"id" : "8", "name" : "Games"},
+    {"id" : "9", "name" : "Chit Chat"}
+]
