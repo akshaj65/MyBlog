@@ -42,7 +42,7 @@ function Search() {
     return (
         <div id="search" onBlur={onBlurHandler}>
             <input type="text" placeholder="Search" value={Input} onChange={onInputHandler} onClick={onInputHandler} />
-            <i frame id="search-icon" ><a href={Input}><GrSearch /></a></i>
+            <i frame id="search-icon" ><a href={Input}><GrSearch color="pink"/></a></i>
 
             {visibility && <ul className="search-list" >
                 {/* we can also use filteredData.slice(0,4).map((filt_value) */}
@@ -56,8 +56,9 @@ function Search() {
                         
                     )
                 })}
+                 {visibility && <Suggestion />}
             </ul>}
-            {visibility && <Suggestion />}
+           
         </div>
 
     )
