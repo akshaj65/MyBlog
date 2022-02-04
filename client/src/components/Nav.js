@@ -1,29 +1,25 @@
 // for searching a json file  https://medium.com/crobyer/search-filter-with-react-js-88986c644ed5
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Search from "./Search";
+import '../templates/utilites.css'
 
 function Nav() {
     
     return (
         <nav>
-            <h3 >dummy</h3>
+            <h3><Link exact  to="/">dummy</Link></h3>
             <Search/>
             <ul>
                 <li>
-                    <NavLink exact activeClassName="active" to="/">
-                        Home
-                    </NavLink>
+                    <Link exact class="__borderBox"  to="">
+                        CREATE BLOG
+                    </Link>
                 </li>
                 <li>
-                    <NavLink exact activeClassName="active" to="/About">
-                        About
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink exact activeClassName="active" to="/Contact">
-                        Contact
-                    </NavLink>
+                    <Link exact  to="/login">
+                        Login
+                    </Link>
                 </li>
             </ul>
         </nav>

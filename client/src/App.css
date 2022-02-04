@@ -3,11 +3,7 @@
   margin: 0;
   box-sizing: border-box;
 }
-.App{
-  height: 100vh;
-  width: 100%;
 
-}
 :root{
   --main-bg-color:#220c4a;
   --secondary-bg-color:#ff7cd4;
@@ -35,9 +31,19 @@ nav ul{
 nav ul li{
   list-style: none;
   padding-left: 25px;
-
 }
 
+.footer{
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  width: 100vw;
+  background-color:var(--main-bg-color);
+  color:var(--secondary-bg-color);
+  justify-content:center ;
+  align-items: center;
+}
 a {
     /* padding: 4px 8px; */
     background-color:var(--main-bg-color);
@@ -54,12 +60,12 @@ a {
   /* outline:0;/* outline:0; removes the border in the button */
   /* } */
 
- .active {
+ /* .active {
   font-weight: bold;
   border: 2.5px solid var(--secondary-bg-color);
   border-radius: 8px;
-  padding: 4px;
-}
+  padding: 5px;
+} */
 
 input{
   position: absolute;
@@ -74,11 +80,49 @@ input{
   position: absolute;
   top: 61px;
   left: 685px;
-  width: 369px;
+  width: 368px;
   display: flex;
   background-color: var(--main-bg-color);
-  padding: 3px;
   flex-direction: column;
+  box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.71);
+  z-index: 10;
+  
+}
+.fade-in{
+  opacity: 1;
+  transition: opacity 150ms ease-in;
+  animation: updown 200ms ease-in  1  ; 
+}
+.fade-out{
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 350ms ease-out;
+  animation: downup 200ms ease-out  1  ; 
+}
+@keyframes updown {
+    0%{
+      transform: translateY(-13px);
+    }
+    60%{
+      transform: translateY(-5px);
+    }
+    99%{
+      transform: translateY(0px);
+    }
+
+}
+@keyframes downup {
+  0%{
+    transform: translateY(0px);
+  }
+  60%{
+    transform: translateY(-9px);
+  }
+  99%{
+    transform: translateY(-15px);
+    
+  }
+
 }
 
 .search-list-child{
@@ -96,9 +140,9 @@ input{
   flex-wrap: wrap;
   background-color: rgba(65, 0, 58, 0.96);
   height: auto;
-  width: 366px;
+  width: 368px;
   font-size: 12px;
-
+  z-index: 10;
 }
 
 .suggestion-child{
@@ -113,6 +157,7 @@ input{
 
 .suggestion-child:hover{
   /* font-weight: 600;  */
+  text-shadow: 0px 0px 2px #f8f8f8;
   border: 1px #c4c4c4 solid;
 }
 i#search-icon{

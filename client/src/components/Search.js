@@ -1,17 +1,16 @@
 import { GrSearch } from "react-icons/gr";
-// import JSONDATA from '';
 import Suggestion from './Suggestion';
-import list  from '../MOCK_DATA.json';
+import list from '../MOCK_DATA.json';
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Search() {
     const [allData, setAllData] = useState([]);
     const [filteredData, setFilteredData] = useState(allData);
     const [Input, setInput] = useState("") //for autocompletion and for searching ->(see search-icon)
     useEffect(() => {
-        // console.log(list)
         setAllData(list);
-        setFilteredData(list)   
+        setFilteredData(list)
 
     }, [])
     const [visibility, setVisibility] = useState(false)
@@ -20,15 +19,15 @@ function Search() {
         setTimeout(() => {
             setVisibility(false)
         }, 100);
-            
-        
-        
+
+
+
     }
 
     const onInputHandler = (event) => {
         setInput(event.target.value)
         let value = event.target.value.toLowerCase();//making the input lowercase
-        value=value.replace(/[^a-zA-Z0-9]/g,'');//change all characters except numbers and letters 
+        value = value.replace(/[^a-zA-Z0-9]/g, '');//change all characters except numbers and letters 
         let result = [];
         // console.log("value " + value);
         result = allData.filter((data) => {
@@ -42,23 +41,23 @@ function Search() {
     return (
         <div id="search" onBlur={onBlurHandler}>
             <input type="text" placeholder="Search" value={Input} onChange={onInputHandler} onClick={onInputHandler} />
-            <i frame id="search-icon" ><a href={Input}><GrSearch color="pink"/></a></i>
+            <i frame id="search-icon" ><Link to={Input}><GrSearch color="pink" /></Link></i>
 
-            {visibility && <ul className="search-list" >
+            <ul className={visibility ? 'search-list fade-in' : 'search-list fade-out'}>
                 {/* we can also use filteredData.slice(0,4).map((filt_value) */}
-                {filteredData.map((filt_value,index) => {
+                {filteredData.map((filt_value, index) => {
                     return (
-                        
-                        index<5 &&<li className="search-list-child" key={filt_value.id} onClick={e=>{setInput(e.target.innerText)}} >
+
+                        index < 5 && <li className="search-list-child" key={filt_value.id} onClick={e => { setInput(e.target.innerText) }} >
                             {/* <a href={filt_value.name}>{filt_value.name}</a>   to directly going to the topic */}
-                            {filt_value.name} 
+                            {filt_value.name}
                         </li>
-                        
+
                     )
                 })}
-                 {visibility && <Suggestion />}
-            </ul>}
-           
+                <Suggestion />
+            </ul>
+
         </div>
 
     )
