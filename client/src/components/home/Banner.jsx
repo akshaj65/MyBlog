@@ -28,13 +28,16 @@ const useStyles = makeStyles({
     '& :first-child':{
       fontSize:66,
       color:'#ffffff',
-      lineHeight:1,
+      lineHeight:1.2,
     },
     '& :last-child':{
+
       fontSize:20,
       padding:4,
       background:'#ffffff',
-      letterSpacing:3
+      color:'#575252',
+      letterSpacing:3,
+      fontWeight:'bolder'
     }
    }
 

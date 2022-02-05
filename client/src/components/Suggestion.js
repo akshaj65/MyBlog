@@ -10,7 +10,7 @@ const Suggestion = () => {
  
             {list.map((item) => (
                 //    <li  key={item.id}> </li>         
-                    <Link to={item.name} className="suggestion-child" key={item.id}>{item.name}</Link>
+                    <Link  exact to={item.name} className="suggestion-child" key={item.id}>{item.name}</Link>
              )
            )}
         </ul >

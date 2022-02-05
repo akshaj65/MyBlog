@@ -35,10 +35,10 @@ nav ul li{
 
 .footer{
   display: flex;
-  position: absolute;
-  bottom: 0;
+  /* position: absolute;
+  bottom: 0; */
   height: 40px;
-  width: 100vw;
+  /* width: 100vw; */
   background-color:var(--main-bg-color);
   color:var(--secondary-bg-color);
   justify-content:center ;

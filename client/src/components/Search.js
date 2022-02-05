@@ -41,7 +41,7 @@ function Search() {
     return (
         <div id="search" onBlur={onBlurHandler}>
             <input type="text" placeholder="Search" value={Input} onChange={onInputHandler} onClick={onInputHandler} />
-            <i frame id="search-icon" ><Link to={Input}><GrSearch color="pink" /></Link></i>
+            <i frame id="search-icon" ><Link exact to={Input}><GrSearch color="pink" /></Link></i>
 
             <ul className={visibility ? 'search-list fade-in' : 'search-list fade-out'}>
                 {/* we can also use filteredData.slice(0,4).map((filt_value) */}
