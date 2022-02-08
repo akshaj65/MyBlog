@@ -1,7 +1,7 @@
 .__borderBox{
     font-weight: 400;
     background-color: #ffb6e7e6;
-    color: var(--main-bg-color);
+    color:var(--main-bg-color);
     border-radius: 2px;
     border: 1px solid black;
     box-shadow: 4px 4px var(--secondary-bg-color);

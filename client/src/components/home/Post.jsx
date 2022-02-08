@@ -26,7 +26,8 @@ const useStyles = makeStyles({
      },
      heading:{
          fontSize:18,
-         fontWeight:600
+         fontWeight:600,
+         textAlign:'center'
      },
      detail:{
          fontSize:14,
@@ -34,16 +35,16 @@ const useStyles = makeStyles({
      }
   
   });
-const Post = () => {
+const Post = ({post}) => {
     const classes=useStyles();
-    const url ='https://images.pexels.com/photos/2323562/pexels-photo-2323562.jpeg'
+    const url =post.picture || 'https://images.pexels.com/photos/2312369/pexels-photo-2312369.jpeg'
   return (
       <Box className={classes.container}>
           <img src={url} alt="wrapper" className={classes.image}/>
-          <Typography className={classes.text}>Games</Typography>
-          <Typography className={classes.heading}>Champion chess</Typography>
-          <Typography className={classes.text}>Author: Ramnath</Typography>
-          <Typography className={classes.detail}>hello grand master</Typography>
+          <Typography className={classes.text}>{post.category}</Typography>
+          <Typography className={classes.heading}>{post.title}</Typography>
+          <Typography className={classes.text}>Author: {post.username}</Typography>
+          <Typography className={classes.detail}>{post.description}</Typography>
       </Box>
   )
 };

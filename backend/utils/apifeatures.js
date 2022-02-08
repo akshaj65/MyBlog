@@ -4,37 +4,37 @@ class ApiFeatures {
         this.queryStr = queryStr;
     }
     // for searching in the title
-    // search(){
-    //     const Keyword= this.queryStr.title ? {
-    //         //thing u want to search
-    //         title:{
-    //             $regex:this.queryStr.title,
-    //             $options:"i",//case insensitive
-    //         },
-    //     }:{}
-    //     // console.log(Keyword)
-
-    //     this.query=this.query.find({...Keyword});
-    //     // console.log(this.queryStr)
-    //     return this;
-    // }
-    filter() {
-        let str=this.queryStr.category
-        let regex= new RegExp(`^${str}$`,"i")
-        const Keyword = this.queryStr.category ? {
+    search(){
+        const Keyword= this.queryStr.category ? {
             //thing u want to search
-            category: {
-                // $eq: this.queryStr.category,
-                $regex:regex
-               
+            category:{
+                $regex:this.queryStr.category,
+                $options:"i",//case insensitive
             },
-        } : {}
+        }:{}
         // console.log(Keyword)
 
-        this.query = this.query.find({ ...Keyword });
+        this.query=this.query.find({...Keyword});
+        // console.log(this.queryStr)
         return this;
-
     }
+    // filter() {
+    //     let str=this.queryStr.category
+    //     let regex= new RegExp(`^${str}$`,"i")
+    //     const Keyword = this.queryStr.category ? {
+    //         //thing u want to search
+    //         category: {
+    //             // $eq: this.queryStr.category,
+    //             $regex:regex
+               
+    //         },
+    //     } : {}
+    //     console.log(Keyword)
+
+    //     this.query = this.query.find({ ...Keyword });
+    //     return this;
+
+    // }
     // filter(){
     //     // const queryCopy= this.queryStr  we cant assign as this  is a referrence so it will affect other elements also
     //     const queryCopy={...queryStr}//but by using spread operator we get actual copy

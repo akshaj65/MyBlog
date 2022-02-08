@@ -1,32 +1,40 @@
-import {  makeStyles, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
+import { makeStyles, Table, TableBody, TableCell, TableHead, TableRow } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import list from '../../MOCK_DATA.json';
 
-const useStyles = makeStyles({  
+const useStyles = makeStyles({
     table: {
-        border:'1px solid rgba(224, 224, 224, 1)',
-        marginTop:20
-     },
-  
-  });
+        border: '1px solid rgba(224, 224, 224, 1)',
+        marginTop: 20
+    },
+    link: {
+        backgroundColor: 'unset',
+        color:'inherit'
+    }
+});
 
 const Categories = () => {
-  const classes = useStyles();
+    const classes = useStyles();
     return <>
         <Table className={classes.table}>
             <TableHead>
                 <TableRow>
                     <TableCell>
-                        All Categories
+                        <Link to='/' className={classes.link}>
+                            All Categories
+                        </Link>
                     </TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
                 {
-                    list.map((item) => (
+                    list.map((category) => (
 
-                        <TableRow key={item.id}>
+                        <TableRow key={category.id}>
                             <TableCell>
-                                {item.name}
+                                <Link to={`/?category=${category.name}`} className={classes.link}>
+                                    {category.name}
+                                </Link>
                             </TableCell>
                         </TableRow>
                     ))

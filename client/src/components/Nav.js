@@ -12,7 +12,7 @@ function Nav() {
             <Search/>
             <ul>
                 <li>
-                    <Link exact className="__borderBox"  to="">
+                    <Link exact className="__borderBox"  to="/create">
                         CREATE BLOG
                     </Link>
                 </li>

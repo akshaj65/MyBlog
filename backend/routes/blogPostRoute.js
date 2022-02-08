@@ -7,13 +7,14 @@ const router = express.Router();
 
 router.route("/posts")
     .get(getAllBlogPosts);
-
+    // isAuthenticatedUser, authorizeUser, 
 router.route("/post/new")
-    .post(isAuthenticatedUser, createBlogPost);
+    .post(createBlogPost);
 router.route("/post/:id")
-    .put(isAuthenticatedUser, authorizeUser , updateBlogPost)
-    .delete(isAuthenticatedUser, authorizeUser, deleteBLogPost)
+    .delete(deleteBLogPost)
     .get(getBlogPost);
+router.route('/update/:id')
+    .post(updateBlogPost)
 
 
 module.exports = router;

@@ -1,8 +1,9 @@
-import { GrSearch } from "react-icons/gr";
+// import { GrSearch } from "react-icons/gr";
 import Suggestion from './Suggestion';
 import list from '../MOCK_DATA.json';
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import SearchIcon from '@material-ui/icons/Search';
 
 function Search() {
     const [allData, setAllData] = useState([]);
@@ -41,7 +42,7 @@ function Search() {
     return (
         <div id="search" onBlur={onBlurHandler}>
             <input type="text" placeholder="Search" value={Input} onChange={onInputHandler} onClick={onInputHandler} />
-            <i frame id="search-icon" ><Link exact to={Input}><GrSearch color="pink" /></Link></i>
+            <i frame id="search-icon" ><Link exact to={Input}><SearchIcon /></Link></i>
 
             <ul className={visibility ? 'search-list fade-in' : 'search-list fade-out'}>
                 {/* we can also use filteredData.slice(0,4).map((filt_value) */}

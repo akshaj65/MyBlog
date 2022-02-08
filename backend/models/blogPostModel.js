@@ -3,24 +3,35 @@ const mongoose= require("mongoose");
 const blogPostSchema=new mongoose.Schema({
     title:{
         type:String,
-        required:[true,"Please enter the title" ]
+        required:[true,"Please enter the title" ],
+        unique:true
+    },
+    description:{
+        type:String,
+        required:true,
+    },
+    picture:{
+        type:String,
     },
     category:{
         type:String,
-        required:[true,"Please enter the topic" ],
-        maxLength:[35,"Topic cannot exceed 35 characters"]
+        required:false,
     },
     createdAt:{
         type:Date,
         default:Date.now
     },
-    createdBy:{
-        type:mongoose.Schema.ObjectId,
-        // ref:"user", //ref tells mongoose which model to use during population
-
+    username:{
+        type:String,
         required:true,
-        select:false,
     }
+    // createdBy:{
+    //     type:mongoose.Schema.ObjectId,
+    //     // ref:"user", //ref tells mongoose which model to use during population
+
+    //     required:true,
+    //     select:false,
+    // }
 }) 
 //compare user is
 blogPostSchema.methods.compareUserId= async function(data){

@@ -5,29 +5,39 @@ const ApiFeatures = require("../utils/apifeatures");
 
 // Create blog post
 exports.createBlogPost = catchAsyncErrors(async (req, res, next) => {
-    req.body.createdBy=req.user.id
+    // req.body.createdBy=req.user.id
     // console.log(req.user.id)
     const blogPost = await BlogPost.create(req.body);
+    blogPost.save();
 
     res.status(201).json({
         success: true,
+        message: 'blog created succesfully',
         blogPost
     })
 });
 
 //Get all blog posts 
 exports.getAllBlogPosts = catchAsyncErrors(async (req, res) => {
-    const resultPerPage =5;
-    const apiFeature = new ApiFeatures(BlogPost.find(), req.query)
-        .filter()
-        .pagination(resultPerPage);
+    let username = req.query.username;
+    let category = req.query.category;
+    let posts;
+    const resultPerPage = 8;
+    // const apiFeature = new ApiFeatures(BlogPost.find(), req.query)
+    // .search()
+    // .pagination(resultPerPage);
     // console.log(apiFeature)
-    
-    const blogPosts = await apiFeature.query;
+    if (username)
+        posts = await BlogPost.find({ username: username });
+    else if (category)
+        posts = await BlogPost.find({ category: category });
+    else
+        posts = await BlogPost.find({}).limit(resultPerPage); //limits number of posts in a page
+    // const blogPosts = await apiFeature.query;
     // const blogPosts = await BlogPost.find();
     res.status(200).json({
         success: true,
-        blogPosts
+        posts
     })
 });
 
@@ -55,14 +65,11 @@ exports.updateBlogPost = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler(" Post not found", 404));
     }
 
-    blogPost = await BlogPost.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-        runValidators: true,
-        useFindAndModify: false
-    });
+    blogPost = await BlogPost.findByIdAndUpdate(req.params.id, { $set: req.body });
 
     res.status(200).json({
         success: true,
+        message: "Blog updated successfully",
         blogPost
     })
 });
